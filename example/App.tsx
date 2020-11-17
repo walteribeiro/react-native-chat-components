@@ -1,19 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ChatComponents from "react-native-chat-components";
+import {StatusBar} from 'expo-status-bar';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {MessageBox} from "./lib";
 
 export default function App() {
-  const [result, setResult] = useState(0);
-
-  useEffect(() => {
-    ChatComponents.multiply(2, 6).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text>Result: {result}</Text>
+      <StatusBar style="auto"/>
+      <MessageBox type="text" text="Chat message example" />
+      <MessageBox type="text" text="Chat message example" status="waiting" />
+      <MessageBox type="text" text="Chat message example" status="sent" />
+      <MessageBox type="text" text="Chat message example" status="received" />
+      <MessageBox type="text" text="Chat message example" status="read" />
     </View>
   );
 }
@@ -21,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },
